@@ -1,9 +1,16 @@
 import { useReducer, useContext, createContext } from "react";
 import reducer from "./reducer";
-import { OPEN_SIDEBAR, CLOSE_SIDEBAR } from "../actions";
+import {
+  OPEN_SIDEBAR,
+  CLOSE_SIDEBAR,
+  NEXT_IMAGE,
+  PREV_IMAGE,
+} from "../actions";
+import { imageList } from "../utils";
 
 const initialState = {
   isSidebarOpen: false,
+  activeImage: 0,
 };
 
 const AppContext = createContext();
@@ -15,8 +22,23 @@ export const AppProvider = ({ children }) => {
   const closeSidebar = () => {
     dispatch({ type: CLOSE_SIDEBAR });
   };
+  const handleNextImage = () => {
+    dispatch({ type: NEXT_IMAGE, payload: imageList.length });
+  };
+  const handlePrevImage = () => {
+    dispatch({ type: PREV_IMAGE, payload: imageList.length });
+  };
   return (
-    <AppContext.Provider value={{ ...state, openSidebar, closeSidebar }}>
+    <AppContext.Provider
+      value={{
+        ...state,
+        imageList,
+        openSidebar,
+        closeSidebar,
+        handlePrevImage,
+        handleNextImage,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );

@@ -1,10 +1,11 @@
-import { Navbar, Sidebar } from "./components";
+import { Navbar, Product, Sidebar } from "./components";
 
 const App = () => {
   return (
     <div className="container">
       <Navbar />
       <Sidebar />
+      <Product />
     </div>
   );
 };
