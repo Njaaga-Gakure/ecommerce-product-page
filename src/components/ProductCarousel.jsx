@@ -18,7 +18,7 @@ const ProductCarousel = () => {
         {imageList.map(({ id, image }, index) => {
           return (
             <div
-              onClick={() => handleActiveImageChange(index)}
+              onMouseEnter={() => handleActiveImageChange(index)}
               key={id}
               className={
                 activeImage === index
