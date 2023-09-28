@@ -192,12 +192,24 @@ button {
 }
 .sidebar__links {
   display: grid;
+  justify-content: start;
   gap: 1rem;
 }
 .sidebar__link {
+  position: relative;
+  /* border: 1px solid black; */
   letter-spacing: var(--letter-spacing);
   text-transform: capitalize;
   font-weight: 700;
+}
+.nav__link:hover::before,
+.sidebar__link:hover::before {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--orange);
 }
 
 /* Product
@@ -394,14 +406,6 @@ Modal
     text-transform: capitalize;
     color: var(--dark-grayish-blue);
     cursor: pointer;
-  }
-  .nav__link:hover::before {
-    position: absolute;
-    content: "";
-    bottom: 0;
-    width: 100%;
-    height: 4px;
-    background-color: var(--orange);
   }
   .sidebar__container {
     display: none;
