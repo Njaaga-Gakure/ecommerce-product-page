@@ -5,6 +5,7 @@ import {
   CLOSE_SIDEBAR,
   NEXT_IMAGE,
   PREV_IMAGE,
+  CHANGE_ACTIVE_IMAGE,
 } from "../actions";
 import { imageList } from "../utils";
 
@@ -22,6 +23,9 @@ export const AppProvider = ({ children }) => {
   const closeSidebar = () => {
     dispatch({ type: CLOSE_SIDEBAR });
   };
+  const handleActiveImageChange = (index) => {
+    dispatch({ type: CHANGE_ACTIVE_IMAGE, payload: index });
+  };
   const handleNextImage = () => {
     dispatch({ type: NEXT_IMAGE, payload: imageList.length });
   };
@@ -37,6 +41,7 @@ export const AppProvider = ({ children }) => {
         closeSidebar,
         handlePrevImage,
         handleNextImage,
+        handleActiveImageChange,
       }}
     >
       {children}

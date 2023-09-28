@@ -1,4 +1,5 @@
 import {
+  CHANGE_ACTIVE_IMAGE,
   CLOSE_SIDEBAR,
   NEXT_IMAGE,
   OPEN_SIDEBAR,
@@ -35,6 +36,9 @@ const reducer = (state, action) => {
       newActiveImage = 0;
     }
     return { ...state, activeImage: newActiveImage };
+  }
+  if (action.type === CHANGE_ACTIVE_IMAGE) {
+    return { ...state, activeImage: action.payload };
   }
 
   throw new Error(`No action type matching: ${action.type}`);

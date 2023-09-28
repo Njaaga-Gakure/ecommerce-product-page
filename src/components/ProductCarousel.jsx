@@ -3,8 +3,13 @@ import previous from "../assets/icon-previous.svg";
 import next from "../assets/icon-next.svg";
 
 const ProductCarousel = () => {
-  const { activeImage, imageList, handlePrevImage, handleNextImage } =
-    useAppContext();
+  const {
+    activeImage,
+    imageList,
+    handlePrevImage,
+    handleNextImage,
+    handleActiveImageChange,
+  } = useAppContext();
   const { image } = imageList[activeImage];
   return (
     <div className="product__carousel">
@@ -13,6 +18,7 @@ const ProductCarousel = () => {
         {imageList.map(({ id, image }, index) => {
           return (
             <div
+              onClick={() => handleActiveImageChange(index)}
               key={id}
               className={
                 activeImage === index

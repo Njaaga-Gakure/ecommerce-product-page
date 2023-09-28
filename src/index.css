@@ -335,6 +335,7 @@ button {
     display: none;
   }
   .product--center {
+    width: 90vw;
     display: grid;
     align-items: center;
     grid-template-columns: repeat(2, 1fr);
@@ -360,9 +361,10 @@ button {
   .img__container {
     border-radius: 5px;
     overflow: hidden;
+    cursor: pointer;
   }
   .img--active {
-    border: 3px solid var(--orange);
+    border: 2px solid var(--orange);
   }
   .img--active img {
     opacity: 0.5;
