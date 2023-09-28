@@ -361,6 +361,12 @@ button {
     border-radius: 5px;
     overflow: hidden;
   }
+  .img--active {
+    border: 3px solid var(--orange);
+  }
+  .img--active img {
+    opacity: 0.5;
+  }
   .cart__buttons {
     grid-template-columns: 1fr 2fr;
   }

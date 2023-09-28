@@ -10,9 +10,16 @@ const ProductCarousel = () => {
     <div className="product__carousel">
       <img src={image} alt="shoe image" className="carousel__img" />
       <div className="img__grid">
-        {imageList.map(({ id, image }) => {
+        {imageList.map(({ id, image }, index) => {
           return (
-            <div key={id} className="img__container">
+            <div
+              key={id}
+              className={
+                activeImage === index
+                  ? "img__container img--active"
+                  : "img__container"
+              }
+            >
               <img src={image} alt="" />
             </div>
           );
