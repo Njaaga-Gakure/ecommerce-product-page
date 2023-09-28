@@ -1,9 +1,9 @@
 import { useAppContext } from "../context/AppProvider";
-import previous from "../assets/icon-previous.svg";
-import next from "../assets/icon-next.svg";
+import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 
 const ProductCarousel = () => {
   const {
+    openModal,
     activeImage,
     imageList,
     handlePrevImage,
@@ -18,6 +18,7 @@ const ProductCarousel = () => {
         {imageList.map(({ id, image }, index) => {
           return (
             <div
+              onClick={openModal}
               onMouseEnter={() => handleActiveImageChange(index)}
               key={id}
               className={
@@ -33,10 +34,10 @@ const ProductCarousel = () => {
       </div>
       <div className="btn__container">
         <button onClick={handlePrevImage} className="carousel__btn prev__btn">
-          <img src={previous} alt="" />
+          <BiChevronLeft />
         </button>
         <button onClick={handleNextImage} className="carousel__btn next__btn">
-          <img src={next} alt="" />
+          <BiChevronRight />
         </button>
       </div>
     </div>

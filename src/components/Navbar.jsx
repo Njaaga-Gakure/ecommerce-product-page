@@ -1,5 +1,5 @@
 import menu from "../assets/icon-menu.svg";
-import cart from "../assets/icon-cart.svg";
+import { BsCart2 } from "react-icons/bs";
 import avatar from "../assets/image-avatar.png";
 import logo from "../assets/logo.svg";
 import { navLinks } from "../utils";
@@ -28,8 +28,9 @@ const Navbar = () => {
         <div className="nav__profile">
           <div className="cart__container">
             <button className="cart__btn">
-              <img src={cart} alt="cart" />
+              <BsCart2 />
             </button>
+            <span className="cart__amount">0</span>
           </div>
           <div className="profile__container">
             <img src={avatar} alt="avatar" className="profile__img" />

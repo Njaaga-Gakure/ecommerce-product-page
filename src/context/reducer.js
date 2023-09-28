@@ -1,7 +1,9 @@
 import {
   CHANGE_ACTIVE_IMAGE,
+  CLOSE_MODAL,
   CLOSE_SIDEBAR,
   NEXT_IMAGE,
+  OPEN_MODAL,
   OPEN_SIDEBAR,
   PREV_IMAGE,
 } from "../actions";
@@ -12,6 +14,12 @@ const reducer = (state, action) => {
   }
   if (action.type === CLOSE_SIDEBAR) {
     return { ...state, isSidebarOpen: false };
+  }
+  if (action.type === OPEN_MODAL) {
+    return { ...state, isModalOpen: true };
+  }
+  if (action.type === CLOSE_MODAL) {
+    return { ...state, isModalOpen: false };
   }
   if (action.type === NEXT_IMAGE) {
     const { payload: imageListLength } = action;

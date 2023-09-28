@@ -131,8 +131,24 @@ button {
   margin: 0;
 }
 .cart__container {
+  position: relative;
   display: flex;
   align-items: center;
+  cursor: pointer;
+}
+.cart__btn svg {
+  font-size: 2rem;
+  color: var(--dark-grayish-blue);
+}
+.cart__amount {
+  font-size: 0.8rem;
+  color: var(--white);
+  border-radius: 10px;
+  position: absolute;
+  background-color: var(--orange);
+  top: -0.25rem;
+  right: -0.25rem;
+  padding: 0 0.75rem;
 }
 .cart__btn {
   background-color: transparent;
@@ -208,18 +224,22 @@ button {
   border-radius: 50%;
   background-color: var(--white);
   border: none;
+  transition: var(--transition);
 }
-.carousel__btn img {
-  width: 10px;
+.carousel__btn:hover {
+  color: var(--orange);
 }
-.img__grid {
-  display: none;
+.carousel__btn svg {
+  font-size: 1.5rem;
 }
 .prev__btn {
   left: 1rem;
 }
 .next__btn {
   right: 1rem;
+}
+.img__grid {
+  display: none;
 }
 .product__info {
   padding: 1rem;
@@ -309,6 +329,48 @@ button {
   font-size: 1.25rem;
   /* border: 1px solid black; */
 }
+/* 
+Modal
+----- */
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.modal__header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+.modal__header svg {
+  color: var(--orange);
+}
+.modal .product__carousel {
+  max-width: 300px;
+}
+.modal .product__carousel .carousel__btn {
+  display: flex;
+}
+.modal .product__carousel .prev__btn {
+  left: 0;
+  transform: translateX(-50%);
+}
+.modal .product__carousel .next__btn {
+  right: 0;
+  transform: translateX(50%);
+}
+.close-modal__btn {
+  background-color: transparent;
+  border: none;
+}
+.close-modal__btn svg {
+  font-size: 1.25rem;
+}
 @media (min-width: 800px) {
   .nav__header {
     gap: 4rem;
@@ -325,11 +387,21 @@ button {
     gap: 1.5rem;
   }
   .nav__link {
+    position: relative;
     padding: 2rem 0;
     /* border: 1px solid black; */
     letter-spacing: var(--letter-spacing);
     text-transform: capitalize;
     color: var(--dark-grayish-blue);
+    cursor: pointer;
+  }
+  .nav__link:hover::before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--orange);
   }
   .sidebar__container {
     display: none;
@@ -371,5 +443,9 @@ button {
   }
   .cart__buttons {
     grid-template-columns: 1fr 2fr;
+  }
+  .modal {
+    display: grid;
+    place-items: center;
   }
 }

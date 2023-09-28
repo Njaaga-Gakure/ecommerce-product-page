@@ -6,11 +6,14 @@ import {
   NEXT_IMAGE,
   PREV_IMAGE,
   CHANGE_ACTIVE_IMAGE,
+  OPEN_MODAL,
+  CLOSE_MODAL,
 } from "../actions";
 import { imageList } from "../utils";
 
 const initialState = {
   isSidebarOpen: false,
+  isModalOpen: false,
   activeImage: 0,
 };
 
@@ -23,6 +26,13 @@ export const AppProvider = ({ children }) => {
   const closeSidebar = () => {
     dispatch({ type: CLOSE_SIDEBAR });
   };
+  const openModal = () => {
+    dispatch({ type: OPEN_MODAL });
+  };
+  const closeModal = () => {
+    dispatch({ type: CLOSE_MODAL });
+  };
+
   const handleActiveImageChange = (index) => {
     dispatch({ type: CHANGE_ACTIVE_IMAGE, payload: index });
   };
@@ -39,6 +49,8 @@ export const AppProvider = ({ children }) => {
         imageList,
         openSidebar,
         closeSidebar,
+        openModal,
+        closeModal,
         handlePrevImage,
         handleNextImage,
         handleActiveImageChange,
